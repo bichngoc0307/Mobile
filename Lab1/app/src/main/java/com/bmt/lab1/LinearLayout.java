@@ -8,15 +8,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 import java.util.Random;
 
 public class LinearLayout extends AppCompatActivity {
-    private View view8,view9,view15,view16,view17;
+    private View view8, view9, view15, view16, view17;
     private SeekBar seekBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +30,11 @@ public class LinearLayout extends AppCompatActivity {
         view15 = findViewById(R.id.view15);
         view16 = findViewById(R.id.view16);
         view17 = findViewById(R.id.view17);
-        seekBar.setMax(4);
+        seekBar.setMax(5);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                Toast.makeText(LinearLayout.this,"test"+i,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(LinearLayout.this,"test"+i,Toast.LENGTH_SHORT).show();
                 Random rnd = new Random();
                 int color1 = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 int color2 = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
@@ -60,13 +63,13 @@ public class LinearLayout extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.menu1:
                 AlertDialog dialog = openDialog();
                 dialog.show();
                 return true;
-            default:break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -77,7 +80,8 @@ public class LinearLayout extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_item, menu);
         return true;
     }
-    private AlertDialog openDialog(){
+
+    private AlertDialog openDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(LinearLayout.this);
         builder.setMessage("This is fourT")
                 .setPositiveButton("YES", new DialogInterface.OnClickListener() {
