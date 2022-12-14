@@ -71,6 +71,7 @@ public class OfficialActivity extends AppCompatActivity {
         }else{
             wrapper.setBackgroundColor(Color.BLACK);
         }
+
         Glide.with(this).load(officials.getPhotoUrl()).placeholder(R.drawable.img_1)
                 .error(R.drawable.img)
                 .into(avatar);

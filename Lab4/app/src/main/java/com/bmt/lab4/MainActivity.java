@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("president",presidents.get(position));
             startActivity(intent);
         });
+
         adapter.setData(presidents);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
