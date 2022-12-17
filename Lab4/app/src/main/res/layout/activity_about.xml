@@ -6,12 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".OfficialActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/about_activity"
+        android:scaleType="fitXY"/>
+
     <TextView
         android:id="@+id/location"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:padding="10dp"
+        android:gravity="center"
         android:text="Know Your Government"
         android:textAlignment="center"
         android:textSize="34sp"
@@ -20,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        />
 
     <TextView
         android:id="@+id/textView2"
