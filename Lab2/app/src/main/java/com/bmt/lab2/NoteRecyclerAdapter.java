@@ -20,7 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private List<NoteEntity> notes;
     private IOnClick onClick;
     private Context context;
@@ -36,6 +35,7 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @NonNull
     @NotNull
     @Override
+//    tạo ra view bỏ vào list
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_item, parent, false);
         context = parent.getContext();
@@ -43,6 +43,7 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
+//    gắn dữ liệu vào viewholder
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
         NoteViewHolder noteViewHolder = (NoteViewHolder) holder;
         noteViewHolder.getTitle().setText(notes.get(position).getTitle());
@@ -65,12 +66,12 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         void clicked(NoteEntity noteEntity,Integer position);
     }
 
-    @Getter
-    @Setter
+//
     public class NoteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView title,content,createTime;
         private ConstraintLayout wrapper;
         private ImageView btnDelete;
+
         public NoteViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             btnDelete = itemView.findViewById(R.id.btnDelete);
@@ -78,11 +79,51 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             content = itemView.findViewById(R.id.content);
             createTime = itemView.findViewById(R.id.createTime);
             wrapper = itemView.findViewById(R.id.wrapper);
-
             btnDelete.setOnClickListener(this);
         }
 
+        public TextView getTitle() {
+            return title;
+        }
+
+        public void setTitle(TextView title) {
+            this.title = title;
+        }
+
+        public TextView getContent() {
+            return content;
+        }
+
+        public void setContent(TextView content) {
+            this.content = content;
+        }
+
+        public TextView getCreateTime() {
+            return createTime;
+        }
+
+        public void setCreateTime(TextView createTime) {
+            this.createTime = createTime;
+        }
+
+        public ConstraintLayout getWrapper() {
+            return wrapper;
+        }
+
+        public void setWrapper(ConstraintLayout wrapper) {
+            this.wrapper = wrapper;
+        }
+
+        public ImageView getBtnDelete() {
+            return btnDelete;
+        }
+
+        public void setBtnDelete(ImageView btnDelete) {
+            this.btnDelete = btnDelete;
+        }
+
         @Override
+//        xóa note
         public void onClick(View v) {
             if(v.equals(btnDelete)){
                 int position = getLayoutPosition();

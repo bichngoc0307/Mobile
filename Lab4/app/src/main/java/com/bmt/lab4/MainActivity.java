@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static CivicInformation civic;
 
     private List<President> presidents = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressbar);
         getCivicInformation();
         location = findViewById(R.id.location);
+
         recyclerView = findViewById(R.id.recyclerView);
         getCivicInformation();
     }
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<CivicInformation> call, Throwable t) {
-                Log.e("THANH", t.getMessage());
+                Log.e("Bich Ngoc", t.getMessage());
             }
 
         });

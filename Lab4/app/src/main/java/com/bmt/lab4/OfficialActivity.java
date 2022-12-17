@@ -64,6 +64,7 @@ public class OfficialActivity extends AppCompatActivity {
         email.setText("No data provider");
         website.setText( officials.getUrls().get(0));
 
+//        màu nền theo đảng phái
         if(officials.getParty().equals(Party.DEMOCRATIC)){
             wrapper.setBackgroundColor(Color.BLUE);
         }else if(officials.getParty().equals(Party.REPUBLICAN)){
@@ -71,7 +72,7 @@ public class OfficialActivity extends AppCompatActivity {
         }else{
             wrapper.setBackgroundColor(Color.BLACK);
         }
-
+//        load ảnh
         Glide.with(this).load(officials.getPhotoUrl()).placeholder(R.drawable.img_1)
                 .error(R.drawable.img)
                 .into(avatar);

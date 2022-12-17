@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView notes;
     private NoteRecyclerAdapter noteRecyclerAdapter;
-
     private FloatingActionButton addBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

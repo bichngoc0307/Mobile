@@ -4,26 +4,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bmt.lab4.R;
 import com.bmt.lab4.dto.President;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PresidentViewHolder>{
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PresidentViewHolder> {
     private List<President> presidents;
     private IClicked clicked;
+
     public interface IClicked {
         void isClicked(Integer position);
     }
 
-    public void setData(List<President> presidents){
+    public void setData(List<President> presidents) {
         this.presidents = presidents;
         notifyDataSetChanged();
     }
+
     public RecyclerAdapter(IClicked clicked) {
         this.clicked = clicked;
     }
@@ -39,13 +44,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Presid
     @Override
     public void onBindViewHolder(@NonNull @NotNull PresidentViewHolder holder, int position) {
         holder.getRole().setText(presidents.get(position).getRole());
-        holder.getPresident().setText(presidents.get(position).getName()+"("+presidents.get(position).getParty()+")");
-        holder.wrapper.setOnClickListener(v->clicked.isClicked(position));
+        holder.getPresident().setText(presidents.get(position).getName() + "(" + presidents.get(position).getParty() + ")");
+        holder.wrapper.setOnClickListener(v -> clicked.isClicked(position));
     }
 
     @Override
     public int getItemCount() {
-        return presidents.size();
+        if (presidents != null) {
+            return presidents.size();
+        }
+        return 0;
     }
 
 
@@ -54,6 +62,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Presid
         public TextView president;
 
         public ConstraintLayout wrapper;
+
         public PresidentViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             role = itemView.findViewById(R.id.role);
