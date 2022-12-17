@@ -1,6 +1,7 @@
 package com.bmt.lab2.util;
 
 import android.content.*;
+
 import com.bmt.lab2.NoteEntity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -10,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataUtil<T> {
-    public void saveData(String key, String sharedPreferencesName, List<T> list, Context context){
-        SharedPreferences.Editor editor = context.getSharedPreferences(sharedPreferencesName,Context.MODE_PRIVATE).edit();
+    public void saveData(String key, String sharedPreferencesName, List<T> list, Context context) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(sharedPreferencesName, Context.MODE_PRIVATE).edit();
         Gson gson = new Gson();
         String json = gson.toJson(list);
-        editor.putString(key,json);
+        editor.putString(key, json);
         editor.apply();
     }
 
@@ -22,19 +23,22 @@ public class DataUtil<T> {
         SharedPreferences sharedPreferences = context.getSharedPreferences(sharedPreferencesName, Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString(key, null);
-        Type type = new TypeToken<List<NoteEntity>>() {}.getType();
-        List<T> notes = (json == null) ? null : gson.fromJson(json,type);
-        if(notes == null) return new ArrayList<T>(); else return notes;
+        Type type = new TypeToken<List<NoteEntity>>() {
+        }.getType();
+        List<T> notes = (json == null) ? null : gson.fromJson(json, type);
+        if (notes == null) return new ArrayList<T>();
+        else return notes;
     }
 
-    public void removeNote(Integer position,String key, String sharedPreferencesName, Context context){
+    public void removeNote(Integer position, String key, String sharedPreferencesName, Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(sharedPreferencesName, Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString(key, null);
-        Type type = new TypeToken<List<NoteEntity>>() {}.getType();
-        List<T> notes = (json == null) ? null : gson.fromJson(json,type);
+        Type type = new TypeToken<List<NoteEntity>>() {
+        }.getType();
+        List<T> notes = (json == null) ? null : gson.fromJson(json, type);
         notes.remove(notes.get(position));
 
-        saveData(key,sharedPreferencesName,notes,context);
+        saveData(key, sharedPreferencesName, notes, context);
     }
 }

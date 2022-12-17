@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         notes = findViewById(R.id.notes);
 
+//         ???
         noteRecyclerAdapter = new NoteRecyclerAdapter((noteEntity,position) ->{
             Intent intent = new Intent(this,CreateUpdateNotice.class);
             intent.putExtra("UPDATE",noteEntity);
@@ -32,10 +33,12 @@ public class MainActivity extends AppCompatActivity {
         DataUtil<NoteEntity> dataUtil = new DataUtil<>();
         List<NoteEntity> notice = dataUtil.loadNotes(SharedPreferencesEnum.KEY.getValue(),SharedPreferencesEnum.SHAREDPREFERENCESNAME.getValue(),this);
 
+//        ???
         noteRecyclerAdapter.setData(notice);
         notes.setAdapter(noteRecyclerAdapter);
         notes.setLayoutManager(new LinearLayoutManager(this));
 
+//        nút thêm note
         addBtn = findViewById(R.id.addBtn);
         addBtn.setOnClickListener(v->{
             Intent intent = new Intent(this,CreateUpdateNotice.class);

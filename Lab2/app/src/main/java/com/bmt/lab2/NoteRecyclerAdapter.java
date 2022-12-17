@@ -6,36 +6,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bmt.lab2.pattern.DatePattern;
 import com.bmt.lab2.pattern.SharedPreferencesEnum;
 import com.bmt.lab2.util.DataUtil;
-import lombok.Getter;
-import lombok.Setter;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     private List<NoteEntity> notes;
     private IOnClick onClick;
     private Context context;
 
-    public void setData(List<NoteEntity> notes){
+    public void setData(List<NoteEntity> notes) {
         this.notes = notes;
         notifyDataSetChanged();
     }
-    public NoteRecyclerAdapter(IOnClick onClick){
+
+    public NoteRecyclerAdapter(IOnClick onClick) {
         this.onClick = onClick;
     }
 
     @NonNull
     @NotNull
     @Override
-//    tạo ra view bỏ vào list
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_item, parent, false);
         context = parent.getContext();
@@ -43,7 +45,6 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-//    gắn dữ liệu vào viewholder
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
         NoteViewHolder noteViewHolder = (NoteViewHolder) holder;
         noteViewHolder.getTitle().setText(notes.get(position).getTitle());
@@ -52,9 +53,7 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DatePattern.DATE_TIME.getValue());
         String date = simpleDateFormat.format(notes.get(position).getCreateTime());
         noteViewHolder.getCreateTime().setText(date);
-        noteViewHolder.getWrapper().setOnClickListener(v->onClick.clicked(notes.get(position),position));
-
-
+        noteViewHolder.getWrapper().setOnClickListener(v -> onClick.clicked(notes.get(position), position));
     }
 
     @Override
@@ -62,13 +61,13 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return notes != null ? notes.size() : 0;
     }
 
-    public interface IOnClick{
-        void clicked(NoteEntity noteEntity,Integer position);
+    public interface IOnClick {
+        void clicked(NoteEntity noteEntity, Integer position);
     }
 
-//
+//    viewHolder
     public class NoteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView title,content,createTime;
+        private TextView title, content, createTime;
         private ConstraintLayout wrapper;
         private ImageView btnDelete;
 
@@ -122,16 +121,16 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             this.btnDelete = btnDelete;
         }
 
-        @Override
 //        xóa note
+        @Override
         public void onClick(View v) {
-            if(v.equals(btnDelete)){
+            if (v.equals(btnDelete)) {
                 int position = getLayoutPosition();
                 notes.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, notes.size());
                 DataUtil<NoteEntity> dataUtil = new DataUtil<>();
-                dataUtil.removeNote(position,SharedPreferencesEnum.KEY.getValue(),SharedPreferencesEnum.SHAREDPREFERENCESNAME.getValue(), context);
+                dataUtil.removeNote(position, SharedPreferencesEnum.KEY.getValue(), SharedPreferencesEnum.SHAREDPREFERENCESNAME.getValue(), context);
             }
         }
     }
