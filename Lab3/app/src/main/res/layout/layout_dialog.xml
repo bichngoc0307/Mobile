@@ -22,7 +22,11 @@
             android:id="@+id/dialog_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:paddingTop="10dp" />
+=======
+            android:paddingTop="10dp"/>
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
     </LinearLayout>
 
     <LinearLayout
@@ -33,16 +37,29 @@
             android:id="@+id/dialog_item_dec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:padding="10dp" />
     </LinearLayout>
 
+=======
+            android:padding="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
 
         <ImageView
             android:id="@+id/dialog_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp" />
+<<<<<<< HEAD
 
+=======
+    </LinearLayout>
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
 
     <LinearLayout
         android:layout_width="match_parent"

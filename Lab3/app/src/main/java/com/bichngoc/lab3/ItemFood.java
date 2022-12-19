@@ -1,5 +1,11 @@
 package com.bichngoc.lab3;
 
+<<<<<<< HEAD
+=======
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,11 +19,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
+=======
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -34,6 +43,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+<<<<<<< HEAD
+=======
+import com.squareup.picasso.Picasso;
+
+
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
 public class ItemFood extends AppCompatActivity {
 
     ListView lv;
@@ -41,6 +56,10 @@ public class ItemFood extends AppCompatActivity {
     ArrayAdapter adapter;
     TextView title, dec;
     Button more, cancel;
+<<<<<<< HEAD
+=======
+    String urlFood;
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
 
     public static ArrayList<Food> arrFood;
 
@@ -50,12 +69,19 @@ public class ItemFood extends AppCompatActivity {
         setContentView(R.layout.activity_item_food);
 
         Intent intent = getIntent();
+<<<<<<< HEAD
 //        get chuỗi url
 //        get tiêu đề
         String url = intent.getStringExtra("url");
         String food_title = intent.getStringExtra("title");
 
 //        ActionBar
+=======
+        //get chuỗi
+        // xét tiêu đề
+        String url = intent.getStringExtra("url");
+        String food_title = intent.getStringExtra("title");
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.img_1);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -68,6 +94,7 @@ public class ItemFood extends AppCompatActivity {
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String today = formatter.format(date);
 
+<<<<<<< HEAD
 //        set tiêu đề
         ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle("PetFoodIndustry.com " + food_title + " " + today);
@@ -79,12 +106,29 @@ public class ItemFood extends AppCompatActivity {
         new ReadRSS().execute(url);
 
 //        set sự kiện click vào 1 item trong listView
+=======
+        // xét tiêu đề
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("PetFoodIndustry.com " + food_title + " " + today);
+
+        lv = (ListView) findViewById(R.id.list_item);
+
+
+        // load rss đang xét
+        new ReadRSS().execute(url);
+
+        // xét sự kiện click vào 1 item trong listView
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             private ImageView image;
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+<<<<<<< HEAD
 //                hiển thị dialog
+=======
+                // hiển thị dialog
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
                 Dialog dialog = new Dialog(ItemFood.this);
                 dialog.setContentView(R.layout.layout_dialog);
                 title = (TextView) dialog.findViewById(R.id.dialog_item_title);
@@ -96,6 +140,7 @@ public class ItemFood extends AppCompatActivity {
                 title.setText(f.getTitle());
                 dec.setText(f.getDec());
 
+<<<<<<< HEAD
 //                load ảnh
                 ImageView imgView = (ImageView) dialog.findViewById(R.id.dialog_image);
                 Glide.with(ItemFood.this).load(f.getImage()).placeholder(R.drawable.load)
@@ -104,6 +149,14 @@ public class ItemFood extends AppCompatActivity {
                 dialog.show();
 
 //                set sự kiện click cancel
+=======
+                //load ảnh
+                ImageView imgView = (ImageView) dialog.findViewById(R.id.dialog_image);
+                Picasso.get().load(f.getImage()).into(imgView);
+                dialog.show();
+
+                // cancel
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -113,7 +166,11 @@ public class ItemFood extends AppCompatActivity {
                     }
                 });
 
+<<<<<<< HEAD
 //                set sự kiện click more
+=======
+                // more
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
                 more.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -141,6 +198,7 @@ public class ItemFood extends AppCompatActivity {
         // đọc dữ liệu
         @Override
         protected String doInBackground(String... strings) {
+<<<<<<< HEAD
 //            khởi tạo biến chứa nội dung
             StringBuilder content = new StringBuilder();
 
@@ -156,6 +214,21 @@ public class ItemFood extends AppCompatActivity {
                 String line = "";
                 while ((line = bufferedReader.readLine()) != null) {
 //                    đổ dữ liệu vào biến content
+=======
+            //khởi tạo đường dẫn
+            StringBuilder content = new StringBuilder();
+            try {
+                // khởi tạo đường dẫn
+                URL url = new URL(strings[0]);
+
+                // đọc đường dẫn kết nối
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                // tạo dòng lưu trữ
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    //đọc dòng
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
                     content.append(line + "\n");
 
                 }
@@ -168,13 +241,18 @@ public class ItemFood extends AppCompatActivity {
             return content.toString();
         }
 
+<<<<<<< HEAD
         //        trả dữ liệu sau khi đọc
+=======
+        // trả dữ liệu sau khi đọc
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
         @Override
         protected void onPostExecute(String s) {
             arrFood = new ArrayList<>();
             super.onPostExecute(s);
             XMLDOMParser parser = new XMLDOMParser();
 
+<<<<<<< HEAD
 //            khởi tạo document chứa nội dung cần
             Document document = parser.getDocument(s);
             String title = "", link = "", dec = "", image = "";
@@ -188,6 +266,19 @@ public class ItemFood extends AppCompatActivity {
 //            duyệt danh sách các item
             for (int i = 0; i < nodeList.getLength(); i++) {
 //                tạo phần tử
+=======
+            // đọc document
+            Document document = parser.getDocument(s);
+            String title = "", link = "", dec = "", image = "";
+
+            // khởi tạo noteList
+            NodeList nodeList = document.getElementsByTagName("item");
+
+            // đọc mô tả
+            NodeList nodeListDescription = document.getElementsByTagName("description");
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                // tạo phần tử
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
                 Element element = (Element) nodeList.item(i);
                 title = parser.getValue(element, "title");
                 link = parser.getValue(element, "link");

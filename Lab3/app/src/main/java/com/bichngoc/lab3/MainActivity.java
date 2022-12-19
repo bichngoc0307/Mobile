@@ -4,6 +4,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+<<<<<<< HEAD
+=======
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -59,8 +64,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.img_1);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+<<<<<<< HEAD
 //        hiển thị ngày
         Date date = Calendar.getInstance().getTime();
+=======
+
+        Date date = Calendar.getInstance().getTime();
+
+//        hiển thị ngày
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String today = formatter.format(date);
 
@@ -69,10 +81,18 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setTitle("PetFoodIndustry.com " + today);
 
         listTieuDe = (ListView) findViewById(R.id.list_title);
+<<<<<<< HEAD
         addUrl();
         addString();
 
 //        khởi tạo mảng chuỗi Adapter
+=======
+
+        addUrl();
+        addString();
+
+        // khởi tạo mảng chuỗi adapter
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrTitle);
         listTieuDe.setAdapter(arrayAdapter);
         listTieuDe.setOnItemClickListener(new AdapterView.OnItemClickListener() {

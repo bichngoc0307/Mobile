@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ItemFood">
 
+=======
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemFood"
+    android:orientation="vertical"
+    >
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="20dp"
         android:src="@drawable/img"></ImageView>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe
     <ListView
         android:id="@+id/list_item"
         android:layout_width="match_parent"

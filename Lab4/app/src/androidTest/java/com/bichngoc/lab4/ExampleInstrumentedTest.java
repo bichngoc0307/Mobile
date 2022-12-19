@@ -1,6 +1,13 @@
+<<<<<<<< HEAD:Lab4/app/src/androidTest/java/com/bichngoc/lab4/ExampleInstrumentedTest.java
 package com.bichngoc.lab4;
 
 import android.content.Context;
+========
+package com.bichngoc.lab3;
+
+import android.content.Context;
+
+>>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe:Lab3/app/src/androidTest/java/com/bichngoc/lab3/ExampleInstrumentedTest.java
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -20,6 +27,10 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+<<<<<<<< HEAD:Lab4/app/src/androidTest/java/com/bichngoc/lab4/ExampleInstrumentedTest.java
         assertEquals("com.bichngoc.lab4", appContext.getPackageName());
+========
+        assertEquals("com.bichngoc.lab3", appContext.getPackageName());
+>>>>>>>> ffe23e0d179a590b8ba2ffd9b3ac2a0489c8e8fe:Lab3/app/src/androidTest/java/com/bichngoc/lab3/ExampleInstrumentedTest.java
     }
 }
