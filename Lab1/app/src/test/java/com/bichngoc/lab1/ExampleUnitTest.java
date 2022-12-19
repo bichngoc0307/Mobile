@@ -1,4 +1,4 @@
-package com.bmt.lab1;
+package com.bichngoc.lab1;
 
 import org.junit.Test;
 
