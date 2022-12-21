@@ -1,6 +1,7 @@
-package com.bichngoc.lab1;
+package com.bichngoc.modernartui;
 
 import android.content.Context;
+
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -20,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.bichngoc.lab1", appContext.getPackageName());
+        assertEquals("com.bichngoc.modernartui", appContext.getPackageName());
     }
 }

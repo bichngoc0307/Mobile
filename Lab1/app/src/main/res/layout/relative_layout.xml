@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RelativeLayout"
+    android:layout_weight="20">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/seekBar">
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:background="#464E7A" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view1"
+            android:background="#F482A9" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:background="#910919"
+            android:layout_toEndOf="@id/view1"/>
+        <View
+            android:id="@+id/view4"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:background="#A9F8EFEF"
+            android:layout_below="@id/view3"
+            android:layout_toEndOf="@id/view1"/>
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#29378A"
+            android:layout_below="@id/view4"
+            android:layout_toEndOf="@id/view2" />
+
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

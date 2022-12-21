@@ -1,4 +1,4 @@
-package com.bichngoc.lab1;
+package com.bichngoc.modernartui;
 
 import org.junit.Test;
 

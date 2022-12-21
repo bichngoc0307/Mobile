@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Lab1</string>
+    <string name="app_name">Modern Art UI</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="linear_layout">LinearLayout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="relative_layout">RelativeLayout</string>
+    <string name="table_layout">TableLayout</string>
 </resources>
