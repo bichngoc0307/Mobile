@@ -12,6 +12,7 @@ import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bichngoc.lab4.constant.Party;
 import com.bichngoc.lab4.dto.President;
+import com.bichngoc.lab4.entity.Channel;
 import com.bichngoc.lab4.entity.Officials;
 import com.bumptech.glide.Glide;
 
@@ -31,6 +32,8 @@ public class OfficialActivity extends AppCompatActivity {
     private ImageView facebook;
     private ImageView youtube;
     private ImageView google;
+
+    private Officials officials2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,12 +87,25 @@ public class OfficialActivity extends AppCompatActivity {
             startActivity(intent);
         });
 //        ???
+        officials2 = officials;
         facebook.setOnClickListener(v->{
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/"));
+            String url="https://www.facebook.com/";
+            for (Channel c : officials2.getChannels()) {
+                if (c.getType().equals("Facebook")) {
+                    url = url + c.getId();
+                }
+            }
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         });
         youtube.setOnClickListener(v->{
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/"));
+            String url="https://www.youtube.com/";
+            for (Channel c : officials2.getChannels()) {
+                if (c.getType().equals("YouTube")) {
+                    url = url + c.getId();
+                }
+            }
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         });
         google.setOnClickListener(v->{
