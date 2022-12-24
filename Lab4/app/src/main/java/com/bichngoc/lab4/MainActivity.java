@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-//???
+
     private String findRoleByName(Integer index) {
         for (Offices office : civic.getOffices()) {
             for (Integer i : office.getOfficialIndices()) {
@@ -118,6 +118,5 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 }

@@ -57,14 +57,15 @@ public class ItemFood extends AppCompatActivity {
         setContentView(R.layout.activity_item_food);
         // lấy acti cũ
         Intent intent = getIntent();
-        //get chuỗi
-        // xét tiêu đề
+
+        // lấy tiêu đề và url
         String url = intent.getStringExtra("url");
         String food_title = intent.getStringExtra("title");
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.img_1);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        // nngay2 hiện tại
+        // ngày hiện tại
         Date date = Calendar.getInstance().getTime();
         //
         // Display a date in day, month, year format
@@ -89,13 +90,14 @@ public class ItemFood extends AppCompatActivity {
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                // hiển thị dialog
                Dialog dialog = new Dialog(ItemFood.this);
-                dialog.setContentView(R.layout.layout_dialog);
+               dialog.setContentView(R.layout.layout_dialog);
                title = (TextView) dialog.findViewById(R.id.dialog_item_title);
                dec = (TextView) dialog.findViewById(R.id.dialog_item_dec);
                image = (ImageView) dialog.findViewById(R.id.dialog_image);
                more = (Button) dialog.findViewById(R.id.more);
                cancel = (Button) dialog.findViewById(R.id.cancel);
-                Food f = arrFood.get(i);
+
+               Food f = arrFood.get(i);
                title.setText(f.getTitle());
                dec.setText(f.getDec());
 
